@@ -5,6 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: green;
+}
+
+.App {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 2px solid black;
+  opacity: 0.7;
 }
 
 code {
