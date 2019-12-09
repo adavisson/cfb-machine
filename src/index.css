@@ -13,9 +13,22 @@ body {
   background-color: #ffffff;
   border: 2px solid black;
   opacity: 0.7;
+  padding: 20px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.matchups {
+  margin: 20px;
+}
+
+.game {
+  margin: 30px;
+}
+
+.game p {
+  margin: 3px;
 }
