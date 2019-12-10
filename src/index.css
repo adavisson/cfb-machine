@@ -32,3 +32,9 @@ code {
 .game p {
   margin: 3px;
 }
+
+.link {
+  margin: 25px;
+  color: black;
+  font-weight: bold;
+}
