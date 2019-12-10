@@ -18,12 +18,16 @@ const MatchupResults = (props) => {
   return (
     <div className="matchups">
       <h3>Results</h3>
+      <p>Wins for {props.team1}: {matchup.team1Wins}</p>
+      <p>Wins for {props.team2}: {matchup.team2Wins}</p>
+      <p>Ties: {matchup.ties}</p>
       {!!loaded && matchup.games.map(game => {
         return(
           <div className="game">
             <h5>{game.season}</h5>
             <p>Winner: {game.winner}</p>
             <p>Score: {game.awayTeam} {game.awayScore} - {game.homeScore} {game.homeTeam}</p>
+            <p>Venue: {game.venue ? game.venue : 'N/A'}</p>
           </div>
         )
       })}
