@@ -10,6 +10,7 @@ function App() {
       <div className="App">
         <div className="header">
           <h1>CFB Machine</h1>
+          <p><em>This page is pulling all data from <a href="https://api.collegefootballdata.com/">api.collegefootballdata.com/</a>.</em></p>
         </div>
         <MatchHistory />
       </div>
