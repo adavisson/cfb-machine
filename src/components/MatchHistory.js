@@ -7,7 +7,7 @@ const MatchHistory = () => {
   const [team1, setTeam1] = useState('');
   const [team2, setTeam2] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
-
+    
   useEffect(() => {
     const fetchData = async() => {
       const result = await fetch('https://api.collegefootballdata.com/teams/fbs');
@@ -30,8 +30,6 @@ const MatchHistory = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitted(true);
-    console.log(team1);
-    console.log(team2);
   }
 
   const rendferForm = () => {
@@ -60,11 +58,24 @@ const MatchHistory = () => {
     )
   }
 
+  const handleClick = () => {
+    setIsSubmitted(false);
+  }
+
+  const renderResults = () => {
+    return (
+      <>
+        <Button onClick={handleClick}>Change Teams</Button>
+        <MatchupResults team1={team1} team2={team2} />
+      </>
+    )
+  }
+
   return (
     <div className="component">
-      <p>Select two teams to see results of all of the games they have played against each other.</p>
-      {rendferForm()}
-      {isSubmitted && <MatchupResults team1={team1} team2={team2} />}
+      {!isSubmitted && <p>Select two teams to see results of all of the games they have played against each other.</p>}
+      {!isSubmitted && rendferForm()}
+      {isSubmitted && renderResults()}
     </div>
   );
 }
