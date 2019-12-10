@@ -1,20 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
 import './App.css';
+import NavBar from './components/NavBar';
+import Home from './components/Home';
 import MatchHistory from './components/MatchHistory';
+import TeamStats from './components/TeamStats';
+import About from './components/About';
 
 function App() {
   return (
-    <>
-      <a className="link" href="https://andydavisson.com">Back to andydavisson.com</a>
+    <Router>
       <div className="App">
-        <div className="header">
-          <h1>CFB Machine</h1>
-          <p><em>This page is pulling all data from <a href="https://api.collegefootballdata.com/">api.collegefootballdata.com/</a>.</em></p>
-        </div>
-        <MatchHistory />
+      <NavBar />
+        <Route exact path="/" component={Home} />
+        <Route path="/match-history" component={MatchHistory} />
+        <Route path="/team-stats" component={TeamStats} />
+        <Route path="/about" component={About} />
       </div>
-    </>
+    </Router>
   );
 }
 
