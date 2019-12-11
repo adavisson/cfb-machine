@@ -39,6 +39,10 @@ code {
   font-weight: bold;
 }
 
+.team-stats-results {
+  margin-top: 25px;
+}
+
 .btn-primary {
   background-color: green;
   border-color: green;
