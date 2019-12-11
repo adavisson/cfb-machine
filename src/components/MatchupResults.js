@@ -8,7 +8,6 @@ const MatchupResults = (props) => {
     const fetchData = async() => {
       const result = await fetch(`https://api.collegefootballdata.com/teams/matchup?team1=${props.team1}&team2=${props.team2}`)
       const data = await result.json();
-      console.log(data)
       setMatchup(data);
       setLoaded(true);
     }

@@ -37,7 +37,7 @@ const MatchHistory = () => {
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="team.ControlSelect1">
           <Form.Label>First Team</Form.Label>
-          <Form.Control as="select" onChange={handleChange1}>
+          <Form.Control as="select" value={team1} onChange={handleChange1}>
             {teams.map(team => {
               return (<option key={'1_' + team.id} value={team.school}>{team.school} {team.mascot}</option>)
             })}
@@ -45,7 +45,7 @@ const MatchHistory = () => {
         </Form.Group>
         <Form.Group controlId="team.ControlSelect2">
           <Form.Label>Second Team</Form.Label>
-          <Form.Control as="select" onChange={handleChange2}>
+          <Form.Control as="select" value={team2} onChange={handleChange2}>
             {teams.map(team => {
               return (<option key={'2_' + team.id} value={team.school}>{team.school} {team.mascot}</option>)
             })}
