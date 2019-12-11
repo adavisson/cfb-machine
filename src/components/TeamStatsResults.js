@@ -12,13 +12,13 @@ const TeamStatsResults = (props) => {
       setLoaded(true);
     }
     fetchData();
-  })
+  },[])
 
   return (
     <div className="team-stats-results page">
       <h3>{props.year} Stats for {props.team}</h3>
       {!!loaded && stats.map(stat => {
-        return(<p>{stat.statName.titleCase()}: {stat.statValue}</p>);
+        return(<p>{stat.statName}: {stat.statValue}</p>);
       })}
     </div>
   );
