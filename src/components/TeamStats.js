@@ -24,7 +24,7 @@ const TeamStats = () => {
       yearArr.push(i);
     }
     setYears(yearArr);
-  })
+  }, [])
 
   const handleChangeTeam = (e) => {
     setTeam(e.target.value);
