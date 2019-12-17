@@ -17,9 +17,11 @@ const TeamStatsResults = (props) => {
   return (
     <div className="team-stats-results">
       <h3>{props.year} Stats for {props.team}</h3>
-      {!!loaded && stats.map(stat => {
-        return(<p>{stat.statName}: {stat.statValue}</p>);
-      })}
+      <div className="stats">
+        {!!loaded && stats.map(stat => {
+          return(<p>{stat.statName}: {stat.statValue}</p>);
+        })}
+      </div>
     </div>
   );
 }

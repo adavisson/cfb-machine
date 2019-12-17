@@ -33,10 +33,18 @@ code {
 
 .game {
   margin: 30px;
+  border: 2px dashed black;
+  padding: 5px;
 }
 
 .game p {
   margin: 3px;
+}
+
+.stats {
+  margin: 15px;
+  padding: 5px;
+  border: 2px dashed black;
 }
 
 .link {
@@ -64,8 +72,9 @@ code {
 }
 
 .navbar {
-  background-color: #ffffff;
-  opacity: 0.7;
+  background-color: #b2d9b7;
+  /* opacity: 0.7; */
+  border-bottom: 1px solid black;
 }
 
 .navbar-brand {
