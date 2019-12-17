@@ -72,7 +72,7 @@ const MatchHistory = () => {
   }
 
   return (
-    <div className="match-history page">
+    <div className="match-history container">
       <h1>Match History</h1>
       {!isSubmitted && <p>Select two teams to see results of all of the games they have played against each other.</p>}
       {!isSubmitted && rendferForm()}

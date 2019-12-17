@@ -79,7 +79,7 @@ const TeamStats = () => {
   }
 
   return (
-    <div className="team-stats page">
+    <div className="team-stats container">
       <h1>Team Stats</h1>
       {!isSubmitted && renderForm()}
       {isSubmitted && renderResults()}

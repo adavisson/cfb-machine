@@ -13,14 +13,11 @@ code {
     monospace;
 }
 
-.page {
+.container {
   background-color: #ffffff;
   border: 2px solid black;
   opacity: 0.7;
   padding: 20px;
-}
-
-.home {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -76,8 +73,8 @@ code {
   font-weight: 600;
 }
 
-@media only screen and (max-width: 500px){
-  .home {
+@media only screen and (max-width: 700px){
+  .container {
     max-width: 85%;
   }
 }
