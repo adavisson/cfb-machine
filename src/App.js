@@ -8,6 +8,7 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import MatchHistory from './components/MatchHistory';
 import TeamStats from './components/TeamStats';
+import Roster from './components/Roster';
 import About from './components/About';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/match-history" component={MatchHistory} />
         <Route path="/team-stats" component={TeamStats} />
+        <Route path="/roster" component={Roster} />
         <Route path="/about" component={About} />
       </div>
     </Router>
