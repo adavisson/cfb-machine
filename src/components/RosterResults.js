@@ -18,7 +18,11 @@ const RosterResults = (props) => {
       {roster.map(player => {
         return(
           <div className="player">
-            <p>{player.first_name} {player.last_name}</p>
+            <h5>#{player.jersey} {player.first_name} {player.last_name}</h5>
+            <p>Position: {player.position}</p>
+            <p>Height: {player.height}"</p>
+            <p>Weight: {player.weight} lbs.</p>
+            <p>Hometown: {player.home_city}, {player.home_state}, {player.home_country}</p>
           </div>
         )
       })}
