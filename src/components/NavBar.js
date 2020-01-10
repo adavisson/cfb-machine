@@ -10,7 +10,7 @@ const NavBar = () => {
         <Nav className="mr-auto">
           <Nav.Link href="/match-history">Match History</Nav.Link>
           <Nav.Link href="/team-stats">Team Stats</Nav.Link>
-          <Nav.Link href="/roster">Rosters</Nav.Link>
+          <Nav.Link href="/rosters">Rosters</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
         </Nav>
         <Nav inline>

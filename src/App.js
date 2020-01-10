@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/match-history" component={MatchHistory} />
         <Route path="/team-stats" component={TeamStats} />
-        <Route path="/roster" component={Roster} />
+        <Route path="/rosters" component={Roster} />
         <Route path="/about" component={About} />
       </div>
     </Router>
