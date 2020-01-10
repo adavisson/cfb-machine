@@ -17,7 +17,9 @@ const RosterResults = (props) => {
     <div className="roster-results">
       {roster.map(player => {
         return(
-          <p>{player.first_name}</p>
+          <div className="player">
+            <p>{player.first_name} {player.last_name}</p>
+          </div>
         )
       })}
     </div>
