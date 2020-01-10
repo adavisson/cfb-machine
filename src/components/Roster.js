@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Form, Button } from 'react-bootstrap';
+import RosterResults from './RosterResults';
 
 const Roster = () => {
   const [teams, setTeams] = useState([]);
@@ -51,6 +52,7 @@ const Roster = () => {
     return (
       <>
         <Button onClick={handleClick}>Change Team</Button>
+        <RosterResults team={team}/>
       </>
     )
   }
