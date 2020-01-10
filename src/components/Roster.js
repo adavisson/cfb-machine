@@ -4,6 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 const Roster = () => {
   const [teams, setTeams] = useState([]);
   const [team, setTeam] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +22,11 @@ const Roster = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitted(true);
+  }
+
+  const handleClick = () => {
+    setIsSubmitted(false);
   }
 
   const renderForm = () => {
@@ -41,10 +47,19 @@ const Roster = () => {
     )
   }
 
+  const renderRoster = () => {
+    return (
+      <>
+        <Button onClick={handleClick}>Change Team</Button>
+      </>
+    )
+  }
+
   return (
     <div className="container">
       <h1>Rosters</h1>
-      {renderForm()}
+      {!isSubmitted && renderForm()}
+      {isSubmitted && renderRoster()}
     </div>
   );
 }
