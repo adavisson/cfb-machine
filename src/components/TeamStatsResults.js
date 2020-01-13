@@ -14,12 +14,17 @@ const TeamStatsResults = (props) => {
     fetchData();
   },[])
 
+  const convertCase = (string) => {
+    const result = string.replace( /([A-Z])/g, " $1" );
+    return result.charAt(0).toUpperCase() + result.slice(1);
+  }
+
   return (
     <div className="team-stats-results">
       <h3>{props.year} Stats for {props.team}</h3>
       <div className="stats">
         {!!loaded && stats.map(stat => {
-          return(<p>{stat.statName}: {stat.statValue}</p>);
+          return(<p>{convertCase(stat.statName)}: {stat.statValue}</p>);
         })}
       </div>
     </div>
