@@ -19,14 +19,6 @@ const MatchHistory = () => {
     fetchData();
   }, []);
 
-  const handleChange1 = (e) => {
-    setTeam1(e.target.value);
-  }
-
-  const handleChange2 = (e) => {
-    setTeam2(e.target.value);
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitted(true);
@@ -37,7 +29,7 @@ const MatchHistory = () => {
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="team.ControlSelect1">
           <Form.Label>First Team</Form.Label>
-          <Form.Control as="select" value={team1} onChange={handleChange1}>
+          <Form.Control as="select" value={team1} onChange={e => setTeam1(e.target.value)}>
             {teams.map(team => {
               return (<option key={'1_' + team.id} value={team.school}>{team.school} {team.mascot}</option>)
             })}
@@ -45,7 +37,7 @@ const MatchHistory = () => {
         </Form.Group>
         <Form.Group controlId="team.ControlSelect2">
           <Form.Label>Second Team</Form.Label>
-          <Form.Control as="select" value={team2} onChange={handleChange2}>
+          <Form.Control as="select" value={team2} onChange={e => setTeam2(e.target.value)}>
             {teams.map(team => {
               return (<option key={'2_' + team.id} value={team.school}>{team.school} {team.mascot}</option>)
             })}
