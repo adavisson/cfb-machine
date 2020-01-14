@@ -26,21 +26,9 @@ const TeamStats = () => {
     setYears(yearArr);
   }, [])
 
-  const handleChangeTeam = (e) => {
-    setTeam(e.target.value);
-  }
-
-  const handleChangeYear = (e) => {
-    setYear(e.target.value);
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitted(true);
-  }
-
-  const handleClick = () => {
-    setIsSubmitted(false);
   }
 
   const renderForm = () => {
@@ -48,7 +36,7 @@ const TeamStats = () => {
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="team.ControlSelect">
           <Form.Label>Team</Form.Label>
-          <Form.Control as="select" value={team} onChange={handleChangeTeam}>
+          <Form.Control as="select" value={team} onChange={e => setTeam(e.target.value)}>
             {teams.map(team => {
               return (<option key={'1_' + team.id} value={team.school}>{team.school} {team.mascot}</option>)
             })}
@@ -56,7 +44,7 @@ const TeamStats = () => {
         </Form.Group>
         <Form.Group controlId="year.ControlSelect">
           <Form.Label>Year</Form.Label>
-          <Form.Control as="select" value={year} onChange={handleChangeYear}>
+          <Form.Control as="select" value={year} onChange={e => setYear(e.target.value)}>
             {years.map(year => {
               return(<option value={year}>{year}</option>)
             })}
@@ -72,7 +60,7 @@ const TeamStats = () => {
   const renderResults = () => {
     return (
       <>
-        <Button onClick={handleClick}>Edit Team/Year</Button>
+        <Button onClick={() => setIsSubmitted(false)}>Edit Team/Year</Button>
         <TeamStatsResults team={team} year={year} />
       </>
     )
