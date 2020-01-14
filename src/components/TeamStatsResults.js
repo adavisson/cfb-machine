@@ -12,7 +12,7 @@ const TeamStatsResults = (props) => {
       setLoaded(true);
     }
     fetchData();
-  },[])
+  })
 
   const convertCase = (string) => {
     const result = string.replace( /([A-Z])/g, " $1" );

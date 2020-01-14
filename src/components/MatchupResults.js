@@ -12,7 +12,7 @@ const MatchupResults = (props) => {
       setLoaded(true);
     }
     fetchData();
-  }, [])
+  })
 
   return (
     <div className="matchups">

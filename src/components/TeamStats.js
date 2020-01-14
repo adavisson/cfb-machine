@@ -1,6 +1,5 @@
 import React, {useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import { generateKeyPairSync } from 'crypto';
 import TeamStatsResults from './TeamStatsResults';
 
 const TeamStats = () => {

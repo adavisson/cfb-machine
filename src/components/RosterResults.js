@@ -11,7 +11,7 @@ const RosterResults = (props) => {
     }
 
     fetchData();
-  },[]);
+  });
 
   return (
     <div className="roster-results">
