@@ -17,17 +17,9 @@ const Roster = () => {
     fetchData();
   },[]);
 
-  const handleChangeTeam = (e) => {
-    setTeam(e.target.value);
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitted(true);
-  }
-
-  const handleClick = () => {
-    setIsSubmitted(false);
   }
 
   const renderForm = () => {
@@ -35,7 +27,7 @@ const Roster = () => {
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="team.ControlSelect">
           <Form.Label>Team</Form.Label>
-          <Form.Control as="select" value={team} onChange={handleChangeTeam}>
+          <Form.Control as="select" value={team} onChange={e => setTeam(e.target.value)}>
             {teams.map(team => {
               return (<option key={'1_' + team.id} value={team.school}>{team.school} {team.mascot}</option>)
             })}
@@ -51,7 +43,7 @@ const Roster = () => {
   const renderRoster = () => {
     return (
       <>
-        <Button onClick={handleClick}>Change Team</Button>
+        <Button onClick={() => setIsSubmitted(false)}>Change Team</Button>
         <RosterResults team={team}/>
       </>
     )
