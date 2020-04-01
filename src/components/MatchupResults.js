@@ -8,11 +8,12 @@ const MatchupResults = (props) => {
     const fetchData = async() => {
       const result = await fetch(`https://api.collegefootballdata.com/teams/matchup?team1=${props.team1}&team2=${props.team2}`)
       const data = await result.json();
+      data.games.sort((a, b) => (a.season < b.season ? 1 : -1))
       setMatchup(data);
       setLoaded(true);
     }
     fetchData();
-  })
+  },[])
 
   return (
     <div className="matchups">
@@ -30,7 +31,6 @@ const MatchupResults = (props) => {
           </div>
         )
       })}
-      {console.log(matchup.games)}
     </div>
   );
 }
