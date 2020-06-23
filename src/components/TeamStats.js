@@ -49,7 +49,7 @@ const TeamStats = () => {
           <Form.Label>Year</Form.Label>
           <Form.Control as="select" value={year} onChange={e => setYear(e.target.value)}>
             {years.map(year => {
-              return(<option value={year}>{year}</option>)
+              return(<option key={year} value={year}>{year}</option>)
             })}
           </Form.Control>
         </Form.Group>

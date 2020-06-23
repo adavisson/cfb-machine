@@ -28,7 +28,7 @@ const TeamStatsResults = (props) => {
       <h3>{props.year} Stats for {props.team}</h3>
       <div className="stats">
         {!!loaded && stats.map(stat => {
-          return(<p>{convertCase(stat.statName)}: {stat.statValue}</p>);
+          return(<p key={stat.statName}>{convertCase(stat.statName)}: {stat.statValue}</p>);
         })}
       </div>
     </div>

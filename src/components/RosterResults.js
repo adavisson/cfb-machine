@@ -20,7 +20,7 @@ const RosterResults = (props) => {
     <div className="roster-results">
       {roster.map(player => {
         return(
-          <div className="player">
+          <div className="player" key={`${player.jersey}_${player.last_name}`}>
             <h5>#{player.jersey} {player.first_name} {player.last_name}</h5>
             <p>Position: {player.position}</p>
             <p>Height: {player.height}"</p>
