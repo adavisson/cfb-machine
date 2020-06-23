@@ -16,7 +16,12 @@ const MatchHistory = () => {
       setTeam1(data[0].school);
       setTeam2(data[0].school);
     }
-    fetchData();
+    try {
+      fetchData();
+    } catch (error) {
+      console.log(error)
+    }
+    
   }, []);
 
   const handleSubmit = (e) => {

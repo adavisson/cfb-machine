@@ -12,7 +12,11 @@ const MatchupResults = (props) => {
       setMatchup(data);
       setLoaded(true);
     }
-    fetchData();
+    try {
+      fetchData();
+    } catch (error) {
+      console.log(error)
+    }
   },[])
 
   return (

@@ -9,8 +9,11 @@ const RosterResults = (props) => {
       const data = await result.json();
       setRoster(data);
     }
-
-    fetchData();
+    try {
+      fetchData();
+    } catch (error) {
+      console.log(error)
+    }
   });
 
   return (

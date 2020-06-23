@@ -14,7 +14,11 @@ const Roster = () => {
       setTeams(data);
       setTeam(data[0].school);
     }
-    fetchData();
+    try {
+      fetchData();
+    } catch (error) {
+      console.log(error)
+    }
   },[]);
 
   const handleSubmit = (e) => {

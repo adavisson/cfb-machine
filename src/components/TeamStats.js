@@ -16,13 +16,17 @@ const TeamStats = () => {
       setTeams(data);
       setTeam(data[0].school);
     }
-    fetchData();
-    const date = new Date();
-    const yearArr = [];
-    for ( let i = 1900; i <= date.getFullYear(); i++){
-      yearArr.push(i);
+    try {
+      fetchData();
+      const date = new Date();
+      const yearArr = [];
+      for ( let i = 1900; i <= date.getFullYear(); i++){
+        yearArr.push(i);
+      }
+      setYears(yearArr);
+    } catch (error) {
+      console.log(error)
     }
-    setYears(yearArr);
   }, [])
 
   const handleSubmit = (e) => {

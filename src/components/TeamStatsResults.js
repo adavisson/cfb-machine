@@ -11,7 +11,11 @@ const TeamStatsResults = (props) => {
       setStats(data);
       setLoaded(true);
     }
-    fetchData();
+    try {
+      fetchData();
+    } catch (error) {
+      console.log(error)
+    }
   })
 
   const convertCase = (string) => {
