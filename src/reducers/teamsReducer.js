@@ -1,4 +1,4 @@
-const teamsReducer = (state = {teams: [], loading: false}, action){
+const teamsReducer = (state = {teams: [], loading: false}, action) => {
   switch(action.type){
     case 'LOADING_TEAMS':
       return {
