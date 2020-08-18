@@ -1,62 +1,73 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import MatchupResults from './MatchupResults';
+import React, { useState, useEffect } from 'react'
+import { Form, Button } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import MatchupResults from './MatchupResults'
+import { fetchTeams } from '../actions/fetchTeams'
 
 const MatchHistory = () => {
-  const [teams, setTeams] = useState([]);
-  const [team1, setTeam1] = useState('');
-  const [team2, setTeam2] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-    
+  const teams = useSelector(state => state.teams)
+  const dispatch = useDispatch()
+
+  const [team1, setTeam1] = useState('')
+  const [team2, setTeam2] = useState('')
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
   useEffect(() => {
-    const fetchData = async() => {
-      const result = await fetch('https://api.collegefootballdata.com/teams/fbs');
-      const data = await result.json();
-      setTeams(data);
-      setTeam1(data[0].school);
-      setTeam2(data[0].school);
-    }
-    try {
-      fetchData();
-    } catch (error) {
-      console.log(error)
-    }
-    
-  }, []);
+    fetchTeams()
+    console.log(teams)
+    // setTeam1(teams[0].school)
+    // setTeam2(teams[0].school)
+  }, [])
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitted(true);
+    e.preventDefault()
+    setIsSubmitted(true)
   }
 
   const rendferForm = () => {
     return (
       <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="team.ControlSelect1">
+        <Form.Group controlId='team.ControlSelect1'>
           <Form.Label>First Team</Form.Label>
-          <Form.Control as="select" value={team1} onChange={e => setTeam1(e.target.value)}>
-            {teams.map(team => {
-              return (<option key={'1_' + team.id} value={team.school}>{team.school} {team.mascot}</option>)
+          <Form.Control
+            as='select'
+            value={team1}
+            onChange={(e) => setTeam1(e.target.value)}
+          >
+            {teams.map((team) => {
+              return (
+                <option key={'1_' + team.id} value={team.school}>
+                  {team.school} {team.mascot}
+                </option>
+              )
             })}
           </Form.Control>
         </Form.Group>
-        <Form.Group controlId="team.ControlSelect2">
+        <Form.Group controlId='team.ControlSelect2'>
           <Form.Label>Second Team</Form.Label>
-          <Form.Control as="select" value={team2} onChange={e => setTeam2(e.target.value)}>
-            {teams.map(team => {
-              return (<option key={'2_' + team.id} value={team.school}>{team.school} {team.mascot}</option>)
+          <Form.Control
+            as='select'
+            value={team2}
+            onChange={(e) => setTeam2(e.target.value)}
+          >
+            {teams.map((team) => {
+              return (
+                <option key={'2_' + team.id} value={team.school}>
+                  {team.school} {team.mascot}
+                </option>
+              )
             })}
           </Form.Control>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant='primary' type='submit'>
           Submit
-        </Button> 
+        </Button>
       </Form>
     )
   }
 
   const handleClick = () => {
-    setIsSubmitted(false);
+    setIsSubmitted(false)
   }
 
   const renderResults = () => {
@@ -69,13 +80,18 @@ const MatchHistory = () => {
   }
 
   return (
-    <div className="match-history container">
+    <div className='match-history container'>
       <h1>Match History</h1>
-      {!isSubmitted && <p>Select two teams to see results of all of the games they have played against each other.</p>}
+      {!isSubmitted && (
+        <p>
+          Select two teams to see results of all of the games they have played
+          against each other.
+        </p>
+      )}
       {!isSubmitted && rendferForm()}
       {isSubmitted && renderResults()}
     </div>
-  );
+  )
 }
- 
-export default MatchHistory;
+
+export default MatchHistory
